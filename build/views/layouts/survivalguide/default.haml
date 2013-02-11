@@ -1,0 +1,31 @@
+-# SURVIVAL GUIDE TEMPLATE
+-@kit_internal = true
+-if @custom_classes
+  - @custom_classes = ' ' + @custom_classes
+-else
+  - @custom_classes = ''
+
+!!! 5
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8 ie7"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9 ie8"> <![endif]-->
+<!--[if gt IE 8]><!-->
+%html.no-js{ :lang => "en" }
+  <!--<![endif]-->
+  = render :template => "../partials/_head.haml"
+  = render :template => "../partials/_webfonts.haml"
+  -if @styletile
+    - @classes = 'survival-kit', 'styletile', 'styletile-' + @version
+  -else
+    - @classes = 'survival-kit' + @custom_classes
+
+  %body{:class => [@classes]}
+    -if @show_guide != false
+      = render :template => "/partials/survivalguide/_header.haml"
+      = render :template => "/partials/survivalguide/_menu.haml"
+    #page
+      #main{:role => "main"}
+        = yield
+      %footer= @footer
+    = render :template => "../partials/_frameworks.haml"
+    = render :template => "../partials/_footer.haml"

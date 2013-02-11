@@ -1,0 +1,46 @@
+- @title = "Common Markup"
+- @subnav = "<nav class='section-nav'></nav> "
+
+= render :template => "/setup/common-elements.haml"
+
+/ Common HTML Elements
+%section#common.element-group
+  %h1.section-title Common Elements
+  -if @headers
+    = render :template => "/partials/survivalguide/common/_headers.haml"
+  -if @characters
+    = render :template => "/partials/survivalguide/common/_characters.haml"
+  -if @paragraphs
+    = render :template => "/partials/survivalguide/common/_paragraphs.haml"
+  -if @links
+    = render :template => "/partials/survivalguide/common/_links.haml"
+  -if @lists
+    = render :template => "/partials/survivalguide/common/_lists.haml"
+  -if @pre
+    = render :template => "/partials/survivalguide/common/_pre.haml"
+/ Phrase-level HTML Elements
+%section#phrase-elements.element-group
+  %h1.section-title Phrase Elements
+  -if @em
+    = render :template => "/partials/survivalguide/common/_em.haml"
+  -if @strong
+    = render :template => "/partials/survivalguide/common/_strong.haml"
+  -if @cite
+    = render :template => "/partials/survivalguide/common/_cite.haml"
+  -if @dfn
+    = render :template => "/partials/survivalguide/common/_dfn.haml"
+  -if @code
+    = render :template => "/partials/survivalguide/common/_code.haml"
+  -if @samp
+    = render :template => "/partials/survivalguide/common/_samp.haml"
+  -if @kbd
+    = render :template => "/partials/survivalguide/common/_kbd.haml"
+  -if @var
+    = render :template => "/partials/survivalguide/common/_var.haml"
+  -if @abbr
+    = render :template => "/partials/survivalguide/common/_abbr.haml"
+  -if @q
+    = render :template => "/partials/survivalguide/common/_q.haml"
+  -if @others
+    = render :template => "/partials/survivalguide/common/_others.haml"
+

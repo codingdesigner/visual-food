@@ -1,0 +1,865 @@
+- @show_guide = false
+- @custom_classes = 'breakpoint language-scss'
+- @title = "Breakpoint"
+
+.da-content
+  #pitch.section
+    :markdown
+      <p class="lead-in">Breakpoint makes writing media queries in Sass super simple. <br/><span> Here's one:</span></p>
+
+      <div class="tabset voila">
+      <div class="tabs">
+      <label for="tab-ex1-1">scss</label>
+      </div>
+      <div class="details">
+      <figure class="tab scss">
+      <input type="radio" id="tab-ex1-1" name="tab-group-ex1" checked=""/>
+      <div class="content">
+        <pre><code>$high-tide: 500px;</code></pre>
+      </div>
+      </figure>
+      </div>
+      </div>
+
+      I told you it was simple. Check it out. You can use that variable in the Breakpoint mixin like this.
+
+      <div class="tabset voila">
+      <div class="tabs">
+      <label for="tab-simple-use-1">scss</label>
+      <label for="tab-simple-use-2">css</label>
+      </div>
+      <div class="details">
+      <figure class="tab scss">
+      <input type="radio" id="tab-simple-use-1" name="tab-group-simple-use" checked=""/>
+      <div class="content">
+      <pre><code>
+      .johnny-utah {
+        @include breakpoint($high-tide) {
+          content: 'Whoa.';
+        }
+      }
+      </code></pre>
+      </div>
+      </figure>
+      <figure class="tab css">
+      <input type="radio" id="tab-simple-use-2" name="tab-group-simple-use" />
+      <div class="content">
+      <pre><code>
+      @media (min-width: 500px) {
+        .johnny-utah {
+          content: 'Whoa.';
+        }
+      }
+      </code></pre>
+      </div>
+      </figure>
+      </div>
+      </div>
+
+      That just did two things that are really helpful. First, **we reduced the media query down to the one value** that really matters here, the min-width value. (You can also build complex queries and override the defaults. We'll get to those.) And second, **we gave that media query a meaningful name**. And once we start calling media queries by name we can **start managing them systematically**. <span class="whoa">Whoa.</span>
+
+      ### Let's add a few more.
+
+      <div class="tabset voila">
+      <div class="tabs">
+      <label for="tab-variables-1">scss</label>
+      </div>
+      <div class="details">
+      <figure class="tab scss">
+      <input type="radio" id="tab-variables-1" name="tab-group-variables" checked=""/>
+      <div class="content">
+      <pre><code>
+      // assume min-width (by default) if only a number
+      $high-tide: 500px;
+      // set min-width/max-width if both values are numbers
+      $ex-presidents: 600px 800px;
+      // if one value is a string, assume a feature/value pair
+      $surfboard-width: max-width 1000px;
+      // string tests together with commas, assume each item is a feature value pair
+      $surfboard-height: min-height 1000px, orientation portrait;
+      $no-parachute: 1500px;
+      </code></pre>
+      </div>
+      </figure>
+      </div>
+      </div>
+
+      #### And look at each in turn.
+
+      1. `$high-tide` uses the defaults. Pass Breakpoint just a number and it assumes you want it to write a **min-width** query.
+
+          <div class="tabset voila">
+          <div class="tabs">
+          <label for="tab-ex-hightide-1">scss</label>
+          <label for="tab-ex-hightide-2">css</label>
+          </div>
+          <div class="details">
+          <figure class="tab scss">
+          <input type="radio" id="tab-ex-hightide-1" name="tab-group-ex-hightide" checked=""/>
+          <div class="content">
+          <pre><code>
+            .reagan {
+              @include breakpoint($high-tide) {
+                content: 'High tide';
+              }
+            }
+            </code></pre>
+          </div>
+          </figure>
+          <figure class="tab css">
+          <input type="radio" id="tab-ex-hightide-2" name="tab-group-ex-hightide"/>
+          <div class="content">
+          <pre><code>
+            @media (min-width: 500px) {
+              .reagan {
+                content: 'High tide';
+              }
+            }
+            </code></pre>
+          </div>
+          </figure>
+          </div>
+          </div>
+
+      2. `$ex-presidents` is made up of two numbers. When Breakpoint sees that it will turn that into a **min-width/max-width** query.
+
+          <div class="tabset voila">
+          <div class="tabs">
+          <label for="tab-ex-expresidents-1">scss</label>
+          <label for="tab-ex-expresidents-2">css</label>
+          </div>
+          <div class="details">
+          <figure class="tab scss">
+          <input type="radio" id="tab-ex-expresidents-1" name="tab-group-ex-expresidents" checked=""/>
+          <div class="content">
+          <pre><code>
+          .nixon {
+            @include breakpoint($ex-presidents) {
+            content: 'Ex-Presidents';
+            }
+          }
+          </code></pre>
+          </div>
+          </figure>
+          <figure class="tab css">
+          <input type="radio" id="tab-ex-expresidents-2" name="tab-group-ex-expresidents"/>
+          <div class="content">
+          <pre><code>
+          @media (min-width: 600px) and (max-width: 800px) {
+            .nixon {
+              content: 'Ex-Presidents';
+            }
+          }
+          </code></pre>
+          </div>
+          </figure>
+          </div>
+
+          </div>
+
+
+      3. `$surfboard-width` is made up of a number and the name of a feature to test. Breakpoint will turn these into **feature/value pairs**6
+
+          <div class="tabset voila">
+          <div class="tabs">
+          <label for="tab-ex-surfboardwidth-1">scss</label>
+          <label for="tab-ex-surfboardwidth-2">css</label>
+          </div>
+          <div class="details">
+          <figure class="tab scss">
+          <input type="radio" id="tab-ex-surfboardwidth-1" name="tab-group-ex-surfboardwidth" checked=""/>
+          <div class="content">
+          <pre><code>
+          .johnson {
+            @include breakpoint($surfboard-width) {
+              content: 'Surfboard Width';
+            }
+          }
+          </code></pre>
+          </div>
+          </figure>
+          <figure class="tab css">
+          <input type="radio" id="tab-ex-surfboardwidth-2" name="tab-group-ex-surfboardwidth"/>
+          <div class="content">
+          <pre><code>
+          @media (max-width: 1000px) {
+            .johnson {
+              content: 'Surfboard Width';
+            }
+          }
+          </code></pre>
+          </div>
+          </figure>
+          </div>
+          </div>
+
+      4. `$surfboard-height` has a feature/value pair, and adds a second non-numeric pair. Breakpoint can interpret **text-based tests** and can **string together as many queries as you need**.
+
+          <div class="tabset voila">
+          <div class="tabs">
+          <label for="tab-ex-surfboardheight-1">scss</label>
+          <label for="tab-ex-surfboardheight-2">css</label>
+          </div>
+          <div class="details">
+          <figure class="tab scss">
+          <input type="radio" id="tab-ex-surfboardheight-1" name="tab-group-ex-surfboardheight" checked=""/>
+          <div class="content">
+          <pre><code>
+          .carter {
+            @include breakpoint($surfboard-height) {
+              content: 'Surfboard Height, Portrait';
+            }
+          }
+          </code></pre>
+          </div>
+          </figure>
+          <figure class="tab css">
+          <input type="radio" id="tab-ex-surfboardheight-2" name="tab-group-ex-surfboardheight"/>
+          <div class="content">
+          <pre><code>
+          @media (min-height: 1000px) and (orientation: portrait) {
+            .carter {
+              content: 'Surfboard Height, Portrait';
+            }
+          }
+          </code></pre>
+          </div>
+          </figure>
+          </div>
+          </div>
+
+      That's the basics, but wait there's more.
+
+      Breakpoint also builds in robust support for [no query fallbacks](#no_query_fallback), the ability to pass the [media query context](media_query_context) to your own custom mixins, and special handling for [device-pixel-ratio](devicepixelratio).
+
+
+
+
+  #get-started.section
+    :markdown
+      ## Get Started
+
+      Breakpoint is a Compass extension, so make sure you have [Sass and Compass Installed](http://compass-style.org/install/) in order to use its awesomeness!
+
+      <div class="tabset voila">
+      <div class="tabs">
+      <label for="tab-install-sass-1">command line</label>
+      </div>
+      <div class="details">
+      <figure class="tab command-line">
+      <input type="radio" id="tab-install-sass-1" name="tab-group-install-sass" checked=""/>
+      <div class="content">
+      <pre><code>gem install sass</code></pre>
+      </div>
+      </figure>
+      </div>
+      </div>
+
+
+      ## Install and Add Breakpoint to Your Project
+
+      <div class="tabset voila">
+      <div class="tabs">
+      <label for="tab-install-breakpoint-1">command line</label>
+      </div>
+      <div class="details">
+      <figure class="tab command-line">
+      <input type="radio" id="tab-install-breakpoint-1" name="tab-group-install-breakpoint" checked=""/>
+      <div class="content">
+      <pre><code>gem install breakpoint</code></pre>
+      </div>
+      </figure>
+      </div>
+      </div>
+
+      If creating a new project or adding to existing project, in config.rb
+
+      <div class="tabset too-long-two">
+      <div class="tabs">
+      <label for="tab-create-project-1">command line - new project</label>
+      <label for="tab-require-1">config.rb existing project</label>
+      </div>
+      <div class="details">
+      <figure class="tab commandline">
+      <input type="radio" id="tab-create-project-1" name="tab-group-project" checked=""/>
+      <div class="content">
+      <pre><code>compass create MY_PROJECT -r breakpoint</code></pre>
+      </div>
+      </figure>
+      <figure class="tab config-rb">
+      <input type="radio" id="tab-require-1" name="tab-group-project" />
+      <div class="content">
+      <pre><code>require 'breakpoint'</code></pre>
+      </div>
+      </figure>
+      </div>
+      </div>
+
+      Import the breakpoint partial at the top of your working file
+
+      <div class="tabset voila">
+      <div class="tabs">
+      <label for="tab-import-breakpoint-1">scss</label>
+      </div>
+      <div class="details">
+      <figure class="tab scss">
+      <input type="radio" id="tab-import-breakpoint-1" name="tab-group-import-breakpoint" checked=""/>
+      <div class="content">
+      <pre><code>@import "breakpoint";</code></pre>
+      </div>
+      </figure>
+      </div>
+      </div>
+
+      ## Setup
+
+      ### Breakpoint Options
+
+      Breakpoint provides a few default options that you can change.
+
+      * `$breakpoint-default-media` - Defaults to 'all'. <span class="more-detail">If you do not pass a media type into the breakpoint mixin, this is the media type that will be used.</span>
+      * `$breakpoint-default-feature` - Defaults to 'min-width'. <span class="more-detail">If you write a breakpoint with only a number, this is the feature that is used.</span>
+      * `$breakpoint-default-pair` - Defaults to 'width'. <span class="more-detail">If you write a breakpoint with two numbers but do not specify the feature, this is the feature that is used.</span>
+      * `$breakpoint-to-ems` - Defaults to 'false'. <span class="more-detail">If set to true, all pt/px/percent numbers will be converted to em units for better, more accessable media queries.</span>
+      * `$breakpoint-prefixes` - Defines the prefixes to write for prefixed media features. <span class="more-detail">Defaults to `'webkit' 'moz'`.</span>
+      * `$breakpoint-prefixed-queries` - Defines what queries should be prefixed. <span class="more-detail">Defaults to `'device-pixel-ratio' 'min-device-pixel-ratio' 'max-device-pixel-ratio'`.</span>
+
+
+      ## Using Breakpoint
+
+      ### First, we set up our breakpoint variables.
+
+      <div class="tabset voila">
+      <div class="tabs">
+      <label for="tab-all-variables-1">scss</label>
+      </div>
+      <div class="details">
+      <figure class="tab scss">
+      <input type="radio" id="tab-all-variables-1" name="tab-group-all-variables" checked=""/>
+      <div class="content">
+      <pre><code>
+      // create $breakpoint variables like so
+      // assume min-width (by default) if only a number
+      $breakpoint-medium-width: 500px;
+      $breakpoint-medium-width-em: 30em;
+      // set min-width/max-width if both values are numbers
+      $breakpoint-medium-not-wide: 500px 700px;
+      // set min/max of feature if there are two numbers
+      $breakpoint-medium-height: height 300px 700px;
+      // if one value is a string, assume a feature/value pair
+      $breakpoint-kind-of-wide: min-width 700px;
+      $breakpoint-not-too-wide: max-width 700px;
+      // for multidimensional lists, assume each item is a feature value pair
+      $breakpoint-wide-portrait: max-width 700px, orientation portrait;
+      // handle one-sided features (ie. monochrome)
+      $breakpoint-wide-portrait-mono: max-width 700px, orientation portrait, monochrome;
+      $breakpoint-mono: monochrome;
+      $breakpoint-hi-rez: 2 device-pixel-ratio;
+      </code></pre>
+      </div>
+      </figure>
+      </div>
+      </div>
+
+      Call the mixin and pass one of your breakpoint variables. You can also call it with a la carte arguments.
+
+      <div class="tabset voila">
+      <div class="tabs">
+      <label for="tab-all-variables-examples-1">scss</label>
+      <label for="tab-all-variables-examples-2">css</label>
+      <label for="tab-all-variables-examples-3">css with $breakpoint-to-ems:
+      true;</label>
+      </div>
+      <div class="details">
+      <figure class="tab scss">
+      <input type="radio" id="tab-all-variables-examples-1" name="tab-group-all-variables-examples" checked=""/>
+      <div class="content">
+      <pre><code>
+      .foo {
+        @include breakpoint($breakpoint-medium-width) {
+          content: 'medium widths';
+        }
+      }
+      .bar {
+        @include breakpoint($breakpoint-medium-width-em) {
+          content: 'medium widths measured in ems';
+        }
+      }
+      .baz {
+        @include breakpoint($breakpoint-medium-not-wide) {
+          content: 'medium, but not too wide';
+        }
+      }
+      .tgif {
+       @include breakpoint($breakpoint-medium-height) {
+         content: 'medium heights';
+       }
+      }
+      .omg {
+        @include breakpoint($breakpoint-kind-of-wide) {
+          content: 'kind of wide';
+        }
+      }
+      .wtf {
+        @include breakpoint($breakpoint-not-too-wide) {
+          content: 'not too wide';
+        }
+      }
+      .bbq {
+        @include breakpoint($breakpoint-wide-portrait) {
+          content: 'wide, portrait';
+        }
+      }
+      .zztop {
+        @include breakpoint($breakpoint-wide-portrait-mono) {
+          content: 'wide, portrait, monochrome';
+        }
+      }
+      .csny {
+        @include breakpoint($breakpoint-mono) {
+          content: 'monochrome';
+        }
+      }
+      .elp {
+        @include breakpoint($breakpoint-mono, print) {
+          content: 'monochrome, print';
+        }
+      }
+      .omgdpr {
+       @include breakpoint($breakpoint-hi-rez) {
+        content: 'hi resolutions';
+       }
+      }
+
+      // You can use breakpoint without variables too.
+      .rhcp {
+        @include breakpoint(30em 40em) {
+          content: 'between 30 and 40ems';
+        }
+      }
+      </code></pre>
+      </div>
+      </figure>
+      <figure class="tab css">
+      <input type="radio" id="tab-all-variables-examples-2" name="tab-group-all-variables-examples"/>
+      <div class="content">
+      <pre><code>
+      @media (min-width: 500px) {
+        .foo {
+          content: 'medium widths';
+        }
+      }
+
+      @media (min-width: 30em) {
+        .bar {
+          content: 'medium widths measured in ems';
+        }
+      }
+
+      @media (min-width: 500px) and (max-width: 700px) {
+        .baz {
+          content: 'medium, but not too wide';
+        }
+      }
+
+      @media (min-height: 300px) and (max-height: 700px) {
+        .tgif {
+          content: 'medium heights';
+        }
+      }
+
+      @media (min-width: 700px) {
+        .omg {
+          content: 'kind of wide';
+        }
+      }
+
+      @media (max-width: 700px) {
+        .wtf {
+          content: 'not too wide';
+        }
+      }
+
+      @media (max-width: 700px) and (orientation: portrait) {
+        .bbq {
+          content: 'wide, portrait';
+        }
+      }
+
+      @media (max-width: 700px) and (orientation: portrait) and (monochrome) {
+        .zztop {
+          content: 'wide, portrait, monochrome';
+        }
+      }
+
+      @media (monochrome) {
+        .csny {
+          content: 'monochrome';
+        }
+      }
+
+      @media print and (monochrome) {
+        .elp {
+          content: 'monochrome, print';
+        }
+      }
+
+      @media (-webkit-device-pixel-ratio: 2) {
+        .omgdpr {
+          content: 'hi resolutions';
+        }
+      }
+
+      @media (-moz-device-pixel-ratio: 2) {
+        .omgdpr {
+          content: 'hi resolutions';
+        }
+      }
+
+      @media (min-width: 30em) and (max-width: 40em) {
+        .rhcp {
+          content: 'between 30 and 40ems';
+        }
+      }
+      </code></pre>
+      </div>
+      </figure>
+      <figure class="tab css">
+      <input type="radio" id="tab-all-variables-examples-3" name="tab-group-all-variables-examples" />
+      <div class="content">
+      <pre><code>
+      @media (min-width: 31.25em) {
+        .foo {
+          content: 'medium widths';
+        }
+      }
+
+      @media (min-width: 30em) {
+        .bar {
+          content: 'medium widths measured in ems';
+        }
+      }
+
+      @media (min-width: 31.25em) and (max-width: 43.75em) {
+        .baz {
+          content: 'medium, but not too wide';
+        }
+      }
+
+      @media (min-height: 18.75em) and (max-height: 43.75em) {
+        .tgif {
+          content: 'medium heights';
+        }
+      }
+
+      @media (min-width: 43.75em) {
+        .omg {
+          content: 'kind of wide';
+        }
+      }
+
+      @media (max-width: 43.75em) {
+        .wtf {
+          content: 'not too wide';
+        }
+      }
+
+      @media (max-width: 43.75em) and (orientation: portrait) {
+        .bbq {
+          content: 'wide, portrait';
+        }
+      }
+
+      @media (max-width: 43.75em) and (orientation: portrait) and (monochrome) {
+        .zztop {
+          content: 'wide, portrait, monochrome';
+        }
+      }
+
+      @media print and (monochrome) {
+        .elp {
+          content: 'monochrome, print';
+        }
+      }
+
+      @media (min-width: 30em) and (max-width: 40em) {
+        .rhcp {
+          content: 'between 30 and 40ems';
+        }
+      }
+      </code></pre>
+      </div>
+      </figure>
+      </div>
+      </div>
+
+  #advanced.section
+    :markdown
+      ## Advanced Features
+
+      ### Media Query Context
+
+      Ever wanted to get the context of a media query from within a mixin or function? Well we have, so we've made that possible! Simply call the `breakpoint-get-context($feature)` function which will either return the contextual value for that feature (`min-width`, `max-width`, etc…) or `false`. You can then do all the awesomeness that you've ever wanted to do with that information.
+
+      Caviats with Media Query context:
+
+      * If you have `$breakpoint-to-ems` set to true, you will get returns in base ems. You can run non-em based values through `breakpoint-to-base-em($value)` to convert them to base ems.
+      * If you are testing for a prefixed feature (such as `device-pixel-ratio`), you need to test for the prefixed value (`-webkit-device-pixel-ratio`, `min--moz-device-pixel-ratio`, etc…).
+
+      ## No Query Fallback
+
+      Breakpoint provides a way to generate fallback CSS for if you would like the CSS to apply even if media queries aren't available. There are three methidologies we discovered cover most, if not all, of the stylistic options a user could have in a system like this: a wrapping selector within the same stylesheet, a seperate stylesheet with no wrapping selector, and a seperate stylesheet with a wrapping selector. For both of these, bare in mind that Sass cannot create separate stylesheets automatically ([yet](https://github.com/nex3/sass/issues/241)), so you're going to need to do it by hand, but the tools we've provided are very powerful, so we think you'll like.
+
+      There are now two new breakpoint flags to set that control no query support, `$breakpoint-no-queries` for specifying that only no query output should be output by Breakpoint and `$breakpoint-no-query-wrappers` for specifying that you want no query wrappers to be printed. Both of the new flags, `$breakpoint-no-queries` and `$breakpoint-no-query-wrappers` default to `false`, toggling them to `true` activates them. For the purposes of clarity in the following code samples, I'm including both flags even though the `false` flags are not explicitly needed. When passing in a wrapper, you must write the whole wrapper and may include a compound wrapper, *i.e.* `'.no-mqs'` or `'#print'` or `'.high-dpi.no-mqs'`. Variables may also be passed in, but they still require the whole wrapper.
+
+      ### Wrapping Selector, Same Stylesheet
+
+      <div class="tabset voila">
+      <div class="tabs">
+      <label for="tab-noquery-nowrap-same-1">style.scss</label>
+      <label for="tab-noquery-nowrap-same-2">style.css</label>
+      </div>
+      <div class="details">
+      <figure class="tab scss">
+      <input type="radio" id="tab-noquery-nowrap-same-1" name="tab-group-noquery-nowrap-same" checked=""/>
+
+      <div class="content">
+      <pre><code>
+      $breakpoint-no-queries: false;
+      $breakpoint-no-query-wrappers: true;
+
+      #foo {
+        background: red;
+        @include breakpoint(567px, $no-query: '.no-mqs') {
+          background: green;
+        }
+      }
+      </code></pre>
+      </div>
+      </figure>
+      <figure class="tab css">
+      <input type="radio" id="tab-noquery-nowrap-same-2" name="tab-group-noquery-nowrap-same"/>
+
+      <div class="content">
+      <pre><code>
+      #foo {
+        background: red;
+      }
+
+      .no-mqs #foo {
+        background: green;
+      }
+
+      @media (min-width: 567px) {
+        #foo {
+          background: green;
+        }
+      }
+      </code></pre>
+      </div>
+      </figure>
+      </div>
+      </div>
+
+
+      ### No Wrapping Selector, Separate Stylesheet
+
+      <div class="tabset voila too-long-five">
+      <div class="tabs">
+      <label for="tab-noquery-nowrap-separate-1">_layout.scss</label>
+      <label for="tab-noquery-nowrap-separate-2">style.scss</label>
+      <label for="tab-noquery-nowrap-separate-3">no-mq.scss</label>
+      <label for="tab-noquery-nowrap-separate-4">style.css</label>
+      <label for="tab-noquery-nowrap-separate-5">no-mq.css</label>
+      </div>
+      <div class="details">
+      <figure class="tab scss">
+      <input type="radio" id="tab-noquery-nowrap-separate-1" name="tab-group-noquery-nowrap-separate" checked=""/>
+      <div class="content">
+      <pre><code>
+      #foo {
+        background: red;
+        @include breakpoint(567px, $no-query: true) {
+          background: green;
+        }
+      }
+      </code></pre>
+      </div>
+      </figure>
+      <figure class="tab scss">
+      <input type="radio" id="tab-noquery-nowrap-separate-2" name="tab-group-noquery-nowrap-separate"/>
+      <div class="content">
+      <pre><code>
+      $breakpoint-no-queries: false;
+      $breakpoint-no-query-wrappers: false;
+
+      @import 'layout';
+      </code></pre>
+      </div>
+      </figure>
+      <figure class="tab scss">
+      <input type="radio" id="tab-noquery-nowrap-separate-3" name="tab-group-noquery-nowrap-separate"/>
+      <div class="content">
+      <pre><code>
+      $breakpoint-no-queries: true;
+      $breakpoint-no-query-wrappers: false;
+
+      @import 'layout';
+      </code></pre>
+      </div>
+      </figure>
+      <figure class="tab css">
+      <input type="radio" id="tab-noquery-nowrap-separate-4" name="tab-group-noquery-nowrap-separate"/>
+      <div class="content">
+      <pre><code>
+      #foo {
+        background: red;
+      }
+
+      @media (min-width: 567px) {
+        #foo {
+          background: green;
+        }
+      }
+      </code></pre>
+      </div>
+      </figure>
+      <figure class="tab css">
+      <input type="radio" id="tab-noquery-nowrap-separate-5" name="tab-group-noquery-nowrap-separate"/>
+      <div class="content">
+      <pre><code>
+      #foo {
+        background: red;
+        background: green;
+      }
+      </code></pre>
+      </div>
+      </figure>
+      </div>
+      </div>
+
+
+
+
+
+      ### Wrapping Selector, Separate Stylesheet
+
+      <div class="tabset voila too-long-five">
+      <div class="tabs">
+      <label for="tab-noquery-wrap-separate-1">_layout.scss</label>
+      <label for="tab-noquery-wrap-separate-2">style.scss</label>
+      <label for="tab-noquery-wrap-separate-3">no-mq.scss</label>
+      <label for="tab-noquery-wrap-separate-4">style.css</label>
+      <label for="tab-noquery-wrap-separate-5">no-mq.css</label>
+      </div>
+      <div class="details">
+      <figure class="tab scss">
+      <input type="radio" id="tab-noquery-wrap-separate-1" name="tab-group-noquery-wrap-separate" checked=""/>
+      <div class="content">
+      <pre><code>
+      #foo {
+        background: red;
+        @include breakpoint(567px, $no-query: '.no-mq') {
+          background: green;
+        }
+      }
+      </code></pre>
+      </div>
+      </figure>
+      <figure class="tab scss">
+      <input type="radio" id="tab-noquery-wrap-separate-2" name="tab-group-noquery-wrap-separate"/>
+      <div class="content">
+      <pre><code>
+      $breakpoint-no-queries: false;
+      $breakpoint-no-query-wrappers: false;
+
+      @import 'layout';
+      </code></pre>
+      </div>
+      </figure>
+      <figure class="tab scss">
+      <input type="radio" id="tab-noquery-wrap-separate-3" name="tab-group-noquery-wrap-separate"/>
+      <div class="content">
+      <pre><code>
+      $breakpoint-no-queries: true;
+      $breakpoint-no-query-wrappers: true;
+
+      @import 'layout';
+      </code></pre>
+      </div>
+      </figure>
+      <figure class="tab css">
+      <input type="radio" id="tab-noquery-wrap-separate-4" name="tab-group-noquery-wrap-separate"/>
+      <div class="content">
+      <pre><code>
+      #foo {
+        background: red;
+      }
+
+      @media (min-width: 567px) {
+        #foo {
+          background: green;
+        }
+      }
+      </code></pre>
+      </div>
+      </figure>
+      <figure class="tab css">
+      <input type="radio" id="tab-noquery-wrap-separate-5" name="tab-group-noquery-wrap-separate"/>
+      <div class="content">
+      <pre><code>
+      .no-mq #foo {
+        background: green;
+      }
+      </code></pre>
+      </div>
+      </figure>
+      </div>
+      </div>
+
+
+
+      ### device-pixel-ratio
+      <details>
+        <summary>Note re: `-o-device-pixel-ratio`</summary>
+        If you're a savvy reader, you'll have noticed that we've not included `-o-device-pixel-ratio` as a prefixed option, and we would encourage you not to either. Opera has decided that <a href="http://dev.opera.com/articles/view/an-introduction-to-meta-viewport-and-viewport/#device-pixel-ratio">their implementation should be written as a fraction, not as a decimal</a>, and we are currently not prepared to support automatic conversion of decimals to fractions. This leaves us in the position of either supporting only fractions for unprefixed `device-pixel-ratio`, which is counter to the way the two largest browsers support the query, or suggesting that if you want to use `-o-device-pixel-ratio` that you write a separate media query for it, and we've chosen the later.
+        <div class="aaargh"></div>
+       </details>
+
+#credits.section
+  :markdown
+    ## Credits
+    ## By Your Friends,
+
+  .main-contributors
+    .mason
+      %strong
+        %a{:href => "http://thecodingdesigner.com/"} Mason Wendell
+      %br
+        %a.ss-icon{:href => "https://github.com/canarymason/"} Octocat
+        %a.ss-icon{:href => "https://twitter.com/codingdesigner"} twitter
+    .amp &
+    .sam
+      %strong
+        %a{:href => "http://snugug.com/"} Sam Richard
+      %br
+        %a.ss-icon{:href => "https://github.com/snugug/"} Octocat
+        %a.ss-icon{:href => "https://twitter.com/snugug"} twitter
+
+  .other-contributors
+    %p With contributions from
+    %ul
+      %li
+        %a.ss-octocat{:href => "https://github.com/robwierzbowski"} Rob Wierzbowski
+      %li
+        %a.ss-octocat{:href => "https://github.com/lolmaus"} lolmaus
+      %li
+        %a.ss-octocat{:href => "https://github.com/alanburke"} Alan Burke
+      %li
+        %a.ss-octocat{:href => "https://github.com/adamstac"} Adam Stacoviak
+  .license
+    :markdown
+      ## License
+
+      Licensed under GPL2/MIT: [GPL2 license](http://www.gnu.org/licenses/gpl-2.0.html) [MIT license](http://www.opensource.org/licenses/mit-license.php)
+

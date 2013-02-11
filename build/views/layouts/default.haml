@@ -1,0 +1,27 @@
+-# SITE TEMPLATE
+-@kit_internal = false
+-if @custom_classes
+  - @custom_classes = ' ' + @custom_classes
+-else
+  - @custom_classes = ''
+
+!!! 5
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8 ie7"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9 ie8"> <![endif]-->
+<!--[if gt IE 8]><!-->
+%html.no-js{ :lang => "en" }
+  <!--<![endif]-->
+  = render :template => "partials/_head.haml"
+  = render :template => "partials/_webfonts.haml"
+  - @classes = @custom_classes
+
+  %body{:class => [@classes]}
+    = render :template => "/partials/_menu.haml"
+    = render :template => "/partials/_header.haml"
+    #page
+      #main{:role => "main"}
+        = yield
+      %footer= @footer
+    = render :template => "partials/_frameworks.haml"
+    = render :template => "partials/_footer.haml"
