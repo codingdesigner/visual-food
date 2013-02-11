@@ -1,9 +1,3 @@
-@font-face {
-  font-family: "IndustrialGothicBannerStd";
-  src: url('../fonts/252467_0_0.eot');
-  src: url('../fonts/252467_0_0.eot?#iefix') format('eot'), url('../fonts/252467_0_0.woff') format('woff'), url('../fonts/252467_0_0.ttf') format('truetype');
-}
-
 .clearfix {
   zoom: 1;
 }
@@ -20,6 +14,137 @@
 
 .styletile .images ul li img {
   max-width: 100%;
+}
+
+.styletile header {
+  overflow: hidden;
+  *zoom: 1;
+  margin-bottom: 1.5em;
+}
+.styletile header aside {
+  text-align: right;
+  color: rgba(103, 102, 102, 0.5);
+}
+.styletile .group {
+  overflow: hidden;
+  *zoom: 1;
+  margin-bottom: 3em;
+}
+.styletile .label, .styletile .styletile-1 .text-examples .logos h1:before, .styletile-1 .text-examples .logos .styletile h1:before {
+  color: rgba(103, 102, 102, 0.5);
+  font-size: 1em;
+  line-height: 1.5em;
+  text-transform: uppercase;
+  font-family: futura-pt, sans-serif;
+}
+.styletile .colors ul li {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
+}
+.styletile .images ul {
+  counter-reset: section;
+}
+.styletile .images ul li {
+  position: relative;
+  overflow: visible;
+}
+.styletile .images ul li:after {
+  position: relative;
+  top: 102%;
+  display: block;
+  color: rgba(103, 102, 102, 0.5);
+  counter-increment: section;
+  content: "Image " counter(section);
+}
+.styletile .images ul li img {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
+  border: 4px solid white;
+  display: block;
+}
+
+.styletile-1 .text-examples .logos {
+  counter-reset: logos;
+}
+.styletile-1 .text-examples .logos h1 {
+  counter-increment: logos;
+}
+.styletile-1 .text-examples .logos h1:before {
+  display: block;
+  font-weight: normal;
+  line-height: 1;
+}
+.styletile-1 .text-examples .logos h1.opt-1:before {
+  content: counter(logos) " - futura-pt, sans-serif";
+}
+.styletile-1 .text-examples .serif {
+  font-family: Georgia, serif;
+}
+.styletile-1 .text-examples .serif .label:after, .styletile-1 .text-examples .serif .logos h1:after:before, .styletile-1 .text-examples .logos .serif h1:after:before {
+  content: " - Georgia, serif";
+}
+.styletile-1 .text-examples .sans, .styletile-1 .text-examples .styletile header aside, .styletile header .styletile-1 .text-examples aside {
+  font-family: futura-pt, sans-serif;
+}
+.styletile-1 .text-examples .sans .label:after, .styletile-1 .text-examples .styletile header aside .label:after, .styletile header .styletile-1 .text-examples aside .label:after, .styletile-1 .text-examples .sans .logos h1:after:before, .styletile-1 .text-examples .logos .sans h1:after:before, .styletile-1 .text-examples .styletile header aside .logos h1:after:before, .styletile-1 .text-examples .logos .styletile header aside h1:after:before, .styletile header .styletile-1 .text-examples aside .logos h1:after:before, .styletile header .styletile-1 .text-examples .logos aside h1:after:before {
+  content: " - futura-pt, sans-serif";
+}
+
+.styletile-1 .colors ul li.color-1 {
+  background-color: #1e1d23;
+}
+.styletile-1 .colors ul li.color-1:after {
+  content: "#1e1d23";
+}
+.styletile-1 .colors ul li.color-2 {
+  background-color: #676666;
+}
+.styletile-1 .colors ul li.color-2:after {
+  content: "#676666";
+}
+.styletile-1 .colors ul li.color-3 {
+  background-color: #93c533;
+}
+.styletile-1 .colors ul li.color-3:after {
+  content: "#93c533";
+}
+.styletile-1 .colors ul li.color-4 {
+  background-color: #e84575;
+}
+.styletile-1 .colors ul li.color-4:after {
+  content: "#e84575";
+}
+.styletile-1 .colors ul li.color-5 {
+  background-color: #f7bf5f;
+}
+.styletile-1 .colors ul li.color-5:after {
+  content: "#f7bf5f";
+}
+.styletile-1 .colors ul li.color-6 {
+  background-color: #6ebbbd;
+}
+.styletile-1 .colors ul li.color-6:after {
+  content: "#6ebbbd";
+}
+.styletile-1 .colors ul li.color-7 {
+  background-color: #3f94af;
+}
+.styletile-1 .colors ul li.color-7:after {
+  content: "#3f94af";
+}
+.styletile-1 .colors ul li.color-8 {
+  background-color: #794f93;
+}
+.styletile-1 .colors ul li.color-8:after {
+  content: "#794f93";
+}
+.styletile-1 .colors ul li.color-9 {
+  background-color: #b3b2b2;
+}
+.styletile-1 .colors ul li.color-9:after {
+  content: "#b3b2b2";
 }
 
 .ie6 .styletile #page, .ie7 .styletile #page, .ie8 .styletile #page {
@@ -180,7 +305,7 @@
 .styletile .colors ul li:after {
   position: relative;
   top: 102%;
-  color: #78777b;
+  color: rgba(103, 102, 102, 0.5);
 }
 @media (max-width: 20.0625em) {
   .styletile .colors ul li {

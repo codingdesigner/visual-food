@@ -1,67 +1,65 @@
 $not-black: #1e1d23;
-$gray: tint($not-black, 40%);
-$cream: #f4eaba;
-$light-cream: #f9f7e0;
-$blue: rgb(239, 250, 250);
-$light-blue: rgb(245, 253, 253);
-$dark-blue: shade($blue, 20%);
-$orange: rgb(255, 108, 10);
-$orange-dark: shade($orange, 50%);
-$white-trans-1: rgba($white, 0.1);
-$white-trans-3: rgba($white, 0.3);
+$gray: #676666;
+$green: #93c533;
+$pink: #e84575;
+$gold: #f7bf5f;
+$teal: #6ebbbd;
+$blue: #3f94af;
+$purple: #794f93;
+$light-gray: tint($gray, 50%);
 
 // DEFAULT COLORS
 // $c-primary: change-color(shade($orange, 30%), $saturation: 80%);
-$c-primary: adjust-color($orange, $saturation: -50%);
+// $c-primary: adjust-color($orange, $saturation: -50%);
 // $c-secondary: $black;
 // $c-tertiary: $black;
 // $c-quadrary: $black;
 
-// COLOR SCHEMES
-// color-schemer arguments
-// $color-location,
-// $base-color,
-// $color-scheme,
-// $hue-offset
-// Color schemes to choose from
-// mono, complement, triad, tetrad, analogic, accented-analogic
-// Pick the base color for your scheme:
-$base-color: $c-primary;
-// Select your scheme from the list and place it here:
-$color-scheme: tetrad;
-// How distant do you want the hue offset to be:
-$hue-offset: 30;
-// How distant do you want tints and shades to be from their base:
-$brightness-offset: 10%;
-// Use Claude Boutet complements instead of RGB complements.
-$color-theory: ryb;
-// Set saturation to 100% and lightness to 50% on all colors
-// $equalize: true;
-$c-primary: color-schemer(primary);
-$c-secondary: color-schemer(secondary);
-$c-tertiary: color-schemer(tertiary);
-$c-quadrary: color-schemer(quadrary);
+// // COLOR SCHEMES
+// // color-schemer arguments
+// // $color-location,
+// // $base-color,
+// // $color-scheme,
+// // $hue-offset
+// // Color schemes to choose from
+// // mono, complement, triad, tetrad, analogic, accented-analogic
+// // Pick the base color for your scheme:
+// $base-color: $c-primary;
+// // Select your scheme from the list and place it here:
+// $color-scheme: tetrad;
+// // How distant do you want the hue offset to be:
+// $hue-offset: 30;
+// // How distant do you want tints and shades to be from their base:
+// $brightness-offset: 10%;
+// // Use Claude Boutet complements instead of RGB complements.
+// $color-theory: ryb;
+// // Set saturation to 100% and lightness to 50% on all colors
+// // $equalize: true;
+// $c-primary: color-schemer(primary);
+// $c-secondary: color-schemer(secondary);
+// $c-tertiary: color-schemer(tertiary);
+// $c-quadrary: color-schemer(quadrary);
 
 
 
 // Color variables expected 04-base
 // $base-color: $red;
 $text-color: $not-black;
-$alt-color: $orange;
-$background-color: $light-blue;
-$border-color: $dark-blue;
+$alt-color: $blue;
+$background-color: $white;
+$border-color: $gray;
 
 
 // link colors
-$link-normal: $orange;
-$link-hover: complement($orange);
-$link-active: complement($orange);
-$link-visited: $orange;
-$link-focus: $orange;
-$link-border-normal: $orange;
-$link-border-hover: complement($orange);
-$link-border-active: complement($orange);
-$link-border-visited: $orange;
+$link-normal: $blue;
+$link-hover: complement($blue);
+$link-active: complement($blue);
+$link-visited: $blue;
+$link-focus: $blue;
+$link-border-normal: $blue;
+$link-border-hover: complement($blue);
+$link-border-active: complement($blue);
+$link-border-visited: $blue;
 
 
 // COLOR VARIABLES FOR STYLE TILES
@@ -72,3 +70,13 @@ $color-tile1-3: $gray;
 $color-tile1-4: $gray;
 $color-tile1-5: $gray;
 $color-tile1-6: $gray;
+
+$color-tile1-1: $not-black;
+$color-tile1-2: $gray;
+$color-tile1-3: $green;
+$color-tile1-4: $pink;
+$color-tile1-5: $gold;
+$color-tile1-6: $teal;
+$color-tile1-7: $blue;
+$color-tile1-8: $purple;
+$color-tile1-9: $light-gray;

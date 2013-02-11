@@ -53,10 +53,10 @@
       %ul
         -(1..@number_of_colors).each do |i|
           %li(class="color-#{i}")
-  -if @number_of_images > 0
+  -if @styletile_images != false
     .images.group
       %h5.label Style and Pattern Swatches
       %ul
-        -(1..@number_of_images).each do |i|
-          %li(class="image-#{i}")
-            %img{:alt => "placeholder image", :src => "http://lorempixel.com/g/400/300/abstract/#{i}"}/
+        -@styletile_images.each do |i|
+          %li
+            %img{:alt => "placeholder image", :src => "#{i}"}/

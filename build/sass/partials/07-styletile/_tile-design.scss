@@ -6,7 +6,7 @@
     @include trailer;
     aside {
       text-align: right;
-      color: $gray;
+      color: rgba($gray, 0.5);
       @extend .sans;
     }
   }
@@ -17,7 +17,7 @@
   }
 
   .label {
-    color: $gray;
+    color: rgba($gray, 0.5);
     @include adjust-font-size-to(ms(0));
     text-transform: uppercase;
     font-family: $font-sans;
@@ -42,7 +42,7 @@
           position: relative;
           top: 102%;
           display: block;
-          color: $gray;
+          color: rgba($gray, 0.5);
           counter-increment: section;
           content: "Image " counter(section);
         }
@@ -147,37 +147,55 @@
         &.color-1 {
           background-color: $color-tile1-1;
           &:after {
-            content: #{$color-tile1-1};
+            content: "#{$color-tile1-1}";
           }
         }
         &.color-2 {
           background-color: $color-tile1-2;
           &:after {
-            content: #{$color-tile1-2};
+            content: "#{$color-tile1-2}";
           }
         }
         &.color-3 {
           background-color: $color-tile1-3;
           &:after {
-            content: #{$color-tile1-3};
+            content: "#{$color-tile1-3}";
           }
         }
         &.color-4 {
           background-color: $color-tile1-4;
           &:after {
-            content: #{$color-tile1-4};
+            content: "#{$color-tile1-4}";
           }
         }
         &.color-5 {
           background-color: $color-tile1-5;
           &:after {
-            content: #{$color-tile1-5};
+            content: "#{$color-tile1-5}";
           }
         }
         &.color-6 {
           background-color: $color-tile1-6;
           &:after {
-            content: #{$color-tile1-6};
+            content: "#{$color-tile1-6}";
+          }
+        }
+        &.color-7 {
+          background-color: $color-tile1-7;
+          &:after {
+            content: "#{$color-tile1-7}";
+          }
+        }
+        &.color-8 {
+          background-color: $color-tile1-8;
+          &:after {
+            content: "#{$color-tile1-8}";
+          }
+        }
+        &.color-9 {
+          background-color: $color-tile1-9;
+          &:after {
+            content: "#{$color-tile1-9}";
           }
         }
       }

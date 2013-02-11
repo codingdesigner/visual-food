@@ -1,0 +1,72 @@
+- @show_guide = false
+- @custom_classes = 'breakpoint language-scss'
+- @title = "Choose Food - Breads - Sandwich - Multigrain"
+
+.da-content
+  %input#foodselectinput{:autocomplete => "off", :maxlength => "80", :name => "foodselectinput", :tabindex => "1", :type => "search", :placeholder => "Search for a food"}/
+  %em.or
+    or
+  %a#visual-picker{:href => "#"}
+    Choose by picture
+  .image-picker
+    %a.section{:href => "#"}
+      Beverages
+    %a.section{:href => "#"}
+      Breads
+    %a.section{:href => "#"}
+      Beans
+    %a.section{:href => "#"}
+      Dairy & Eggs
+    %a.section{:href => "#"}
+      Fish
+    %a.section{:href => "#"}
+      Fruits
+    %a.section{:href => "#"}
+      Meats
+    %a.section{:href => "#"}
+      Pasta
+    %a.section{:href => "#"}
+      Rice
+    %a.section{:href => "#"}
+      Vegetables
+  .image-picker.sandwich
+    %a.section{:href => "#"}
+      White
+    %a.section{:href => "#"}
+      Wheat
+    %a.section{:href => "multigrain.html"}
+      Multigrain
+    %a.section{:href => "#"}
+      Rye
+    %a.section{:href => "#"}
+      Sourdough
+    %a.section{:href => "#"}
+      Other
+  .food-log-form
+    %form#log-food
+      .brand
+        %label{:for => "brand"}
+          Brand:
+        %select#brand{:name => "mealTypeId"}
+          %option{:value => "2"} Arnold
+          %option{:value => "3", :selected => true} Pepperidge Farm
+          %option{:value => "4"} Average
+          %option{:value => "5"} Custom
+      .calories
+        %label{:for => "calories"}
+          Calories:
+        #calories
+          250
+      %h2
+        Multigrain sandwich bread
+      .when
+        %label{:for => "when"}
+          When:
+        %select#when{:name => "mealTypeId"}
+          %option{:value => "7"} Anytime
+          %option{:value => "1"} Breakfast
+          %option{:value => "2"} Morning Snack
+          %option{:value => "3", :selected => true} Lunch
+          %option{:value => "4"} Afternoon Snack
+          %option{:value => "5"} Dinner
+      %input#log-it.button{:name => "add", :type => "submit", :value => "Log Food"}/

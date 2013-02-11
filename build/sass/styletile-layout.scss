@@ -21,6 +21,7 @@
 // @import "partials/06-ui-patterns/drupal-patterns";
 // @import "your-design-here/design";
 // @import "partials/08-media/print";
+@import "partials/07-styletile/tile-design";
 
 
 // Set up the layout for your site using your chosen grid framework
@@ -155,7 +156,7 @@ $media-layout-desktop: $bp-desktop 12;
         &:after {
           position: relative;
           top: 102%;
-          color: $gray;
+          color: rgba($gray, 0.5);
         }
         @include at-breakpoint($media-layout-handheld) {
           @include span-columns(1, 2);
