@@ -1,0 +1,9 @@
+%table-menu {
+  display: table;
+  width: 100%;
+  li {
+    display: table-cell;
+    padding: 0 0.5em;
+    text-align: center;
+  }
+}

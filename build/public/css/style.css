@@ -38,6 +38,16 @@ h1, h2, h3, h4, h5, h6 {
   font-family: futura-pt, sans-serif;
 }
 
+#navigation ul {
+  display: table;
+  width: 100%;
+}
+#navigation ul li {
+  display: table-cell;
+  padding: 0 0.5em;
+  text-align: center;
+}
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -161,28 +171,28 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 2.5em;
-  line-height: 1.2em;
-}
-
-h2 {
-  font-size: 2.0625em;
-  line-height: 1.45455em;
-}
-
-h3 {
   font-size: 1.75em;
   line-height: 1.71429em;
 }
 
-h4 {
+h2 {
   font-size: 1.625em;
   line-height: 1.84615em;
 }
 
-h5 {
+h3 {
   font-size: 1.4375em;
   line-height: 2.08696em;
+}
+
+h4 {
+  font-size: 1.1875em;
+  line-height: 1.26316em;
+}
+
+h5 {
+  font-size: 1.1875em;
+  line-height: 1.26316em;
 }
 
 h6 {
@@ -937,6 +947,131 @@ del {
 
 .ss-retweet:before, .ss-retweet.right:after {
   content: '';
+}
+
+#navigation {
+  background: #3f94af;
+  padding: 0.5em 0;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.7) 0 1px 2px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.7) 0 1px 2px;
+  box-shadow: rgba(0, 0, 0, 0.7) 0 1px 2px;
+}
+#navigation ul {
+  margin: 0;
+}
+#navigation a {
+  text-transform: uppercase;
+  padding: 0 0.5em;
+  color: white;
+}
+#navigation a:visited {
+  color: white;
+}
+#navigation a:focus {
+  color: white;
+}
+#navigation a:hover {
+  color: white;
+}
+#navigation a:active {
+  color: white;
+}
+#navigation a {
+  text-decoration: none;
+  border-bottom: 1px solid white;
+}
+#navigation a:visited {
+  border-bottom-color: white;
+}
+#navigation a:hover {
+  border-bottom-color: white;
+}
+#navigation a:active {
+  border-bottom-color: white;
+}
+#navigation a:hover {
+  border-bottom-width: 4px;
+}
+
+header, #page {
+  padding: 0 0.5em;
+}
+
+#visual-picker {
+  -webkit-box-shadow: #93c533 0 0 0 1px;
+  -moz-box-shadow: #93c533 0 0 0 1px;
+  box-shadow: #93c533 0 0 0 1px;
+  color: white;
+  background: #93c533 url('../images/Poached-Eggs-Avocado-Breakfast.jpg?1360647503') no-repeat 0% 50%;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+  padding: 0.2em 0 0.2em 3.7em;
+  display: inline-block;
+  width: 7em;
+  line-height: 1.1;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  vertical-align: middle;
+  margin-left: 0.25em;
+}
+#visual-picker {
+  text-decoration: none;
+  border-bottom: none;
+}
+#visual-picker:visited {
+  border-bottom: none;
+}
+#visual-picker:focus {
+  border-bottom: none;
+}
+#visual-picker:hover {
+  border-bottom: none;
+}
+#visual-picker:active {
+  border-bottom: none;
+}
+
+.image-picker {
+  margin-bottom: 1em;
+}
+.image-picker .section {
+  height: 3em;
+  width: 3em;
+  -webkit-box-shadow: #93c533 0 0 0 1px;
+  -moz-box-shadow: #93c533 0 0 0 1px;
+  box-shadow: #93c533 0 0 0 1px;
+  display: inline-block;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  vertical-align: middle;
+  line-height: 7em;
+  margin: 0.5em 0.5em 1.5em;
+  text-align: center;
+  background-color: #e8e8e8;
+}
+.image-picker .section {
+  text-decoration: none;
+  border-bottom: none;
+}
+.image-picker .section:visited {
+  border-bottom: none;
+}
+.image-picker .section:focus {
+  border-bottom: none;
+}
+.image-picker .section:hover {
+  border-bottom: none;
+}
+.image-picker .section:active {
+  border-bottom: none;
 }
 
 .tabset {

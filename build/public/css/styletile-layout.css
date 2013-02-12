@@ -146,6 +146,12 @@
 .styletile-1 .colors ul li.color-9:after {
   content: "#b3b2b2";
 }
+.styletile-1 .colors ul li.color-10 {
+  background-color: #e8e8e8;
+}
+.styletile-1 .colors ul li.color-10:after {
+  content: "#e8e8e8";
+}
 
 .ie6 .styletile #page, .ie7 .styletile #page, .ie8 .styletile #page {
   *zoom: 1;

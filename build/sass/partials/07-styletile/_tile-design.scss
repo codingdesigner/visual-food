@@ -198,6 +198,12 @@
             content: "#{$color-tile1-9}";
           }
         }
+        &.color-10 {
+          background-color: $color-tile1-10;
+          &:after {
+            content: "#{$color-tile1-10}";
+          }
+        }
       }
     }
   }

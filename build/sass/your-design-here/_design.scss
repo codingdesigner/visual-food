@@ -1,2 +1,73 @@
 // Create the design for your site below
 // SITE-WIDE DESIGN --------------------------------------------------------------
+
+#navigation {
+  background: $blue;
+  padding: 0.5em 0;
+  @include box-shadow(rgba($black, 0.7) 0 1px 2px);
+  ul {
+    @extend %table-menu;
+    margin: 0;
+  }
+  a {
+    $link-normal: $white;
+    $link-hover: complement($link-normal);
+    $link-active: complement($link-normal);
+    $link-visited: $link-normal;
+    $link-focus: $link-normal;
+    $link-border-normal: $white;
+    $link-border-hover: $white;
+    $link-border-active: $white;
+    $link-border-visited: $white;
+    text-transform: uppercase;
+    padding: 0 0.5em;
+    @include link-colors($link-normal, $link-hover, $link-active, $link-visited, $link-focus);
+    @if $border-links == true {
+      @include border-links($link-border-normal, $link-border-hover, $link-border-active, $link-border-visited);
+      &:hover {
+        border-bottom-width: 4px;
+      }
+    }
+  }
+}
+
+header, #page {
+  padding: 0 0.5em;
+}
+
+.or {
+  // @extend %visuallyhidden;
+}
+
+#visual-picker {
+  @include box-shadow(rgba($green, 1) 0 0 0 1px);
+  color: $white;
+  background: $green image-url("Poached-Eggs-Avocado-Breakfast.jpg") no-repeat 0% 50%;
+  @include background-size(contain);
+  padding: .2em 0 .2em 3.7em;
+  display: inline-block;
+  width: 7em;
+  // height: 3em;
+  line-height: 1.1;
+  @include border-radius();
+  @include undo-border-links;
+  vertical-align: middle;
+  margin-left: 0.25em;
+}
+
+.image-picker {
+  margin-bottom: 1em;
+  .section {
+    height: 3em;
+    width: 3em;
+    @include box-shadow(rgba($green, 1) 0 0 0 1px);
+    display: inline-block;
+    @include border-radius(50%);
+    vertical-align: middle;
+    line-height: 7em;
+    margin: 0.5em 0.5em 1.5em;
+    text-align: center;
+    background-color: $very-light-gray;
+    @include undo-border-links;
+  }
+}

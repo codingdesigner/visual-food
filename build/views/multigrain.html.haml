@@ -8,27 +8,7 @@
     or
   %a#visual-picker{:href => "#"}
     Choose by picture
-  .image-picker
-    %a.section{:href => "#"}
-      Beverages
-    %a.section{:href => "#"}
-      Breads
-    %a.section{:href => "#"}
-      Beans
-    %a.section{:href => "#"}
-      Dairy & Eggs
-    %a.section{:href => "#"}
-      Fish
-    %a.section{:href => "#"}
-      Fruits
-    %a.section{:href => "#"}
-      Meats
-    %a.section{:href => "#"}
-      Pasta
-    %a.section{:href => "#"}
-      Rice
-    %a.section{:href => "#"}
-      Vegetables
+  = render :template => "partials/_food-categories.haml"
   .image-picker.sandwich
     %a.section{:href => "#"}
       White
