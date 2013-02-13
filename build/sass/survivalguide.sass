@@ -80,17 +80,23 @@ header.kit-ui
 // NAVIGATION
 ////////////////////////////
 .menu-trigger
+  display: block
   float: left
-  min-width: calc-em(44px, 16px)
-  min-height: calc-em(44px, 16px)
-  margin-top: -0.5em
+  width: calc-em(44px, 16px)
+  height: calc-em(44px, 16px)
+  margin: 0.5em
+  // outline: 1px solid red
+  text-align: center
+  // margin-top: -0.5em
   border-bottom-width: 0 !important
   border-bottom-color: transparent !important
-  @extend %font-awesome
-  @extend .icon-th-list
-  &:before
-    font-size: 24px
-    line-height: calc-em(44px, 24px)
+  // @extend %font-awesome
+  // @extend .icon-th-list
+  // line-hize: 24px
+  line-height: 44px
+  background-color: $sk-midgray
+  // &:before
+  //   font-size: 24px
 .jPanelMenu #menu
   display: none
 #jPanelMenu-menu

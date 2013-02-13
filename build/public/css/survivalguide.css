@@ -16,7 +16,7 @@ div.element .example .markup + .show-source {
   font-family: Consolas, Menlo, "Courier New", monospace, monospace;
 }
 
-.menu-trigger, .fold-section,
+.fold-section,
 .fold-article {
   font-family: FontAwesome;
   font-weight: normal;
@@ -128,16 +128,16 @@ header.kit-ui {
 }
 
 .menu-trigger {
+  display: block;
   float: left;
-  min-width: 2.75em;
-  min-height: 2.75em;
-  margin-top: -0.5em;
+  width: 2.75em;
+  height: 2.75em;
+  margin: 0.5em;
+  text-align: center;
   border-bottom-width: 0 !important;
   border-bottom-color: transparent !important;
-}
-.menu-trigger:before {
-  font-size: 24px;
-  line-height: 1.83333em;
+  line-height: 44px;
+  background-color: #444444;
 }
 
 .jPanelMenu #menu {
