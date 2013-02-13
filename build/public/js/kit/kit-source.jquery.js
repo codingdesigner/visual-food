@@ -120,7 +120,7 @@ function foldSection($el, $dir) {
 */
 (function($){
   if($('body.documentation').length == 0){
-    $('header.kit-ui').prepend('<a class="menu-trigger"></a>');
+    $('header.kit-ui').prepend('<a class="menu-trigger">m</a>');
     var jPM = $.jPanelMenu();
     jPM.on();
   }

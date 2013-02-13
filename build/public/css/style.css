@@ -995,6 +995,8 @@ del {
 
 header, #page {
   padding: 0 0.5em;
+}
+.food-picker header, .food-picker #page {
   max-width: 32em;
   margin: 0 auto;
 }

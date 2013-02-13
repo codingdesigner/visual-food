@@ -33,8 +33,10 @@
 
 header, #page {
   padding: 0 0.5em;
-  max-width: 32em;
-  margin: 0 auto;
+  .food-picker & {
+    max-width: 32em;
+    margin: 0 auto;
+  }
 }
 
 .start-searching{
