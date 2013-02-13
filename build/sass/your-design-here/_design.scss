@@ -35,39 +35,155 @@ header, #page {
   padding: 0 0.5em;
 }
 
-.or {
-  // @extend %visuallyhidden;
+.start-searching{
+  margin-bottom: 2em;
+}
+
+.lists {
+  ul {
+    @include no-bullets;
+    padding-left: 0;
+    margin: 0;
+    li {
+      line-height: 2;
+      margin: 0 -0.5em;
+      padding: 0 0.5em;
+      &:nth-of-type(even) {
+        background-color: tint($very-light-gray, 50%);
+      }
+    }
+  }
+}
+
+.add-custom {
+  @extend %color-block;
+  display: block;
+  margin: 2em auto;
+  padding: 0.2em 0.25em;
+  border: none;
+  background-color: $gold;
+  // font-size: ms(1);
+  // line-height: 2;
+  text-align: center;
+  text-transform: uppercase;
+  @include box-shadow(rgba($gold, 0.5) 0 0 0 0.25em);
+  color: $white;
+  $link-normal: $white;
+  $link-hover: $white;
+  $link-active: $white;
+  $link-visited: $white;
+  $link-focus: $white;
+  @include link-colors($link-normal, $link-hover, $link-active, $link-visited, $link-focus);
 }
 
 #visual-picker {
-  @include box-shadow(rgba($green, 1) 0 0 0 1px);
-  color: $white;
+  @include undo-border-links;
+  display: inline-block;
+  margin-left: 0.25em;
+  padding: .2em 0 .2em 3.7em;
+  width: 7em;
   background: $green image-url("Poached-Eggs-Avocado-Breakfast.jpg") no-repeat 0% 50%;
   @include background-size(contain);
-  padding: .2em 0 .2em 3.7em;
-  display: inline-block;
-  width: 7em;
-  // height: 3em;
+  color: $white;
   line-height: 1.1;
-  @include border-radius();
-  @include undo-border-links;
   vertical-align: middle;
-  margin-left: 0.25em;
+  @include border-radius();
+  @include box-shadow(rgba($green, 1) 0 0 0 1px);
 }
 
 .image-picker {
   margin-bottom: 1em;
   .section {
+    @include undo-border-links;
+    display: inline-block;
     height: 3em;
     width: 3em;
-    @include box-shadow(rgba($green, 1) 0 0 0 1px);
-    display: inline-block;
-    @include border-radius(50%);
+    margin: 0.5em 0.5em 1.5em;
     vertical-align: middle;
     line-height: 7em;
-    margin: 0.5em 0.5em 1.5em;
     text-align: center;
     background-color: $very-light-gray;
-    @include undo-border-links;
+    @include background-size(contain);
+    @include border-radius(50%);
+    @include box-shadow(rgba($green, 1) 0 0 0 1px);
+  }
+}
+
+$food-categories: breads, beans, dairy, fish, fruits, meats, pasta, rice, vegetables;
+@each $cat in $food-categories {
+  [title="#{$cat}"]{
+    background: image-url("food/#{$cat}.jpg") no-repeat 50% 50%;
+  }
+}
+
+$bread-categories: roll, bun, sandwich, pita, tortilla, other;
+.breads {
+  @each $bread in $bread-categories {
+    [title="#{$bread}"]{
+      background: image-url("food/breads/#{$bread}.jpg") no-repeat 50% 50%;
+    }
+  }
+}
+
+$sandwich-categories: multigrain, rye, sourdough, wheat, white, other;
+.sandwich {
+  @each $sandwich in $sandwich-categories {
+    [title="#{$sandwich}"]{
+      background: image-url("food/breads/sandwiches/#{$sandwich}.jpg") no-repeat 50% 50%;
+    }
+  }
+}
+
+%color-block {
+  color: $white;
+  padding: 0.1em 0.25em;
+  @include border-radius;
+}
+
+.food-log-form {
+  padding: 1em 0;
+  border-top: 0.25em solid $purple;
+  div:not(.calories) label {
+    display: inline-block;
+    min-width: 5em;
+    color: $light-gray;
+    text-align: right;
+  }
+  .calories {
+    @extend %color-block;
+    float: right;
+    min-width: 2.5em;
+    background-color: $gold;
+    text-align: center;
+    @include box-shadow(rgba($gold, 0.3) 0 0 0 0.25em);
+    label {
+      display: block;
+      margin: 0 -0.25em;
+      padding: 0 0.25em 0.1em;
+      border-top: 2px solid $white;
+      background-color: mix($gold, $pink);
+      color: $white;
+      @include transform3d( translateY(0.1em) );
+      @include border-bottom-radius;
+    }
+  }
+  input {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    border: 1px solid $light-gray;
+  }
+  [type="submit"] {
+    -webkit-appearance: none;
+    @extend %color-block;
+    display: block;
+    clear: both;
+    margin: 2em auto;
+    padding: 0.2em 0.25em;
+    border: none;
+    background-color: $pink;
+    font-size: ms(1);
+    line-height: 2;
+    text-align: center;
+    @include box-shadow(rgba($pink, 0.5) 0 0 0 0.25em);
   }
 }

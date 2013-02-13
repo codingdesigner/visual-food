@@ -3,11 +3,5 @@
 - @title = "Choose Food"
 
 .content
-  %input#foodselectinput{:autocomplete => "off", :maxlength => "80", :name => "foodselectinput", :tabindex => "1", :type => "search", :placeholder => "Search for a food"}/
-  %em.or
-    or
-  %a#visual-picker{:href => "#"}
-    Choose by picture
-  = render :template => "partials/_food-categories.haml"
+  = render :template => "partials/_search.haml"
   = render :template => "partials/_food-lists.haml"
-

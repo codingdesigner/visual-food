@@ -1,0 +1,30 @@
+.food-log-form
+  %form#log-food
+    .calories
+      #calories
+        250
+      %label{:for => "calories"}
+        cals
+    .brand
+      %label{:for => "brand"}
+        Brand:
+      %select#brand{:name => "mealTypeId"}
+        %option{:value => "2"} Arnold
+        %option{:value => "3", :selected => true} Pepperidge Farm
+        %option{:value => "4"} Average
+        %option{:value => "5"} Custom
+    .portion
+      %label{:for => "portion"}
+        How much?
+      %input#portion{:name => "portion", :type => "text", :placeholder => "1 oz"}/
+    .when
+      %label{:for => "when"}
+        When:
+      %select#when{:name => "mealTypeId"}
+        %option{:value => "7"} Anytime
+        %option{:value => "1"} Breakfast
+        %option{:value => "2"} Morning Snack
+        %option{:value => "3", :selected => true} Lunch
+        %option{:value => "4"} Afternoon Snack
+        %option{:value => "5"} Dinner
+    %input#log-it.button{:name => "add", :type => "submit", :value => "Log Food"}/

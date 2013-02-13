@@ -201,7 +201,6 @@ header.kit-ui {
   margin: 0;
 }
 
-.no-js body,
 body.documentation {
   display: -webkit-box;
   display: -moz-box;
@@ -217,14 +216,12 @@ body.documentation {
   box-align: stretch;
   padding-top: 44px;
 }
-.no-js body header.kit-ui,
 body.documentation header.kit-ui {
   position: fixed;
   width: 100%;
   height: 44px;
   margin-top: -44px;
 }
-.no-js body #menu,
 body.documentation #menu {
   width: auto;
   max-width: 250px;

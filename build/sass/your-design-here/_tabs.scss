@@ -9,11 +9,11 @@
   label {
     float: left;
     position: relative;
-    @include transform3d(translateY(1px));
+    display: inline-block;
+    @include transform3d(translateY(2px));
     font-style: italic;
     color: $not-black;
-    display: inline-block;
-    background: $light-gray;
+    background: $very-light-gray;
     padding: 1px 0.5em;
     border: 1px solid $not-black;
     border-bottom: none;
@@ -34,7 +34,7 @@
         height: 6px;
         border-radius: 0 0 0 6px;
         border-width: 0 0 1px 1px;
-        box-shadow: -2px 2px 0 $light-gray;
+        box-shadow: -2px 2px 0 $very-light-gray;
       }
     }
     &:not(:first-of-type) {
@@ -44,6 +44,17 @@
     &.radio-checked {
       background: $white;
       z-index: 2;
+      &:before {
+        display: block;
+        content: $space;
+        position: absolute;
+        border-width: 0.5em 0.5em 0;
+        border-color: $blue transparent;
+        border-style: solid;
+        bottom: -0.5em;
+        left: 50%;
+        @include transform3d( translateX(-50%) );
+      }
       &:after {
         box-shadow: -2px 2px 0 $white;
       }

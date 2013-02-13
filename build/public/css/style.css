@@ -997,27 +997,77 @@ header, #page {
   padding: 0 0.5em;
 }
 
-#visual-picker {
-  -webkit-box-shadow: #93c533 0 0 0 1px;
-  -moz-box-shadow: #93c533 0 0 0 1px;
-  box-shadow: #93c533 0 0 0 1px;
+.start-searching {
+  margin-bottom: 2em;
+}
+
+.lists ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.lists ul li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0;
+}
+.lists ul li {
+  line-height: 2;
+  margin: 0 -0.5em;
+  padding: 0 0.5em;
+}
+.lists ul li:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.add-custom {
+  display: block;
+  margin: 2em auto;
+  padding: 0.2em 0.25em;
+  border: none;
+  background-color: #f7bf5f;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-box-shadow: rgba(247, 191, 95, 0.5) 0 0 0 0.25em;
+  -moz-box-shadow: rgba(247, 191, 95, 0.5) 0 0 0 0.25em;
+  box-shadow: rgba(247, 191, 95, 0.5) 0 0 0 0.25em;
   color: white;
+  color: white;
+}
+.add-custom:visited {
+  color: white;
+}
+.add-custom:focus {
+  color: white;
+}
+.add-custom:hover {
+  color: white;
+}
+.add-custom:active {
+  color: white;
+}
+
+#visual-picker {
+  display: inline-block;
+  margin-left: 0.25em;
+  padding: 0.2em 0 0.2em 3.7em;
+  width: 7em;
   background: #93c533 url('../images/Poached-Eggs-Avocado-Breakfast.jpg?1360647503') no-repeat 0% 50%;
   -webkit-background-size: contain;
   -moz-background-size: contain;
   -o-background-size: contain;
   background-size: contain;
-  padding: 0.2em 0 0.2em 3.7em;
-  display: inline-block;
-  width: 7em;
+  color: white;
   line-height: 1.1;
+  vertical-align: middle;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px;
-  vertical-align: middle;
-  margin-left: 0.25em;
+  -webkit-box-shadow: #93c533 0 0 0 1px;
+  -moz-box-shadow: #93c533 0 0 0 1px;
+  box-shadow: #93c533 0 0 0 1px;
 }
 #visual-picker {
   text-decoration: none;
@@ -1040,22 +1090,26 @@ header, #page {
   margin-bottom: 1em;
 }
 .image-picker .section {
+  display: inline-block;
   height: 3em;
   width: 3em;
-  -webkit-box-shadow: #93c533 0 0 0 1px;
-  -moz-box-shadow: #93c533 0 0 0 1px;
-  box-shadow: #93c533 0 0 0 1px;
-  display: inline-block;
+  margin: 0.5em 0.5em 1.5em;
+  vertical-align: middle;
+  line-height: 7em;
+  text-align: center;
+  background-color: #e8e8e8;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
   border-radius: 50%;
-  vertical-align: middle;
-  line-height: 7em;
-  margin: 0.5em 0.5em 1.5em;
-  text-align: center;
-  background-color: #e8e8e8;
+  -webkit-box-shadow: #93c533 0 0 0 1px;
+  -moz-box-shadow: #93c533 0 0 0 1px;
+  box-shadow: #93c533 0 0 0 1px;
 }
 .image-picker .section {
   text-decoration: none;
@@ -1074,6 +1128,149 @@ header, #page {
   border-bottom: none;
 }
 
+[title="breads"] {
+  background: url('../images/food/breads.jpg?1360725829') no-repeat 50% 50%;
+}
+
+[title="beans"] {
+  background: url('../images/food/beans.jpg?1360725904') no-repeat 50% 50%;
+}
+
+[title="dairy"] {
+  background: url('../images/food/dairy.jpg?1360725948') no-repeat 50% 50%;
+}
+
+[title="fish"] {
+  background: url('../images/food/fish.jpg?1360726749') no-repeat 50% 50%;
+}
+
+[title="fruits"] {
+  background: url('../images/food/fruits.jpg?1360726002') no-repeat 50% 50%;
+}
+
+[title="meats"] {
+  background: url('../images/food/meats.jpg?1360726046') no-repeat 50% 50%;
+}
+
+[title="pasta"] {
+  background: url('../images/food/pasta.jpg?1360726071') no-repeat 50% 50%;
+}
+
+[title="rice"] {
+  background: url('../images/food/rice.jpg?1360726140') no-repeat 50% 50%;
+}
+
+[title="vegetables"] {
+  background: url('../images/food/vegetables.jpg?1360726160') no-repeat 50% 50%;
+}
+
+.breads [title="roll"] {
+  background: url('../images/food/breads/roll.jpg?1360727038') no-repeat 50% 50%;
+}
+.breads [title="bun"] {
+  background: url('../images/food/breads/bun.jpg?1360727089') no-repeat 50% 50%;
+}
+.breads [title="sandwich"] {
+  background: url('../images/food/breads/sandwich.jpg?1360727130') no-repeat 50% 50%;
+}
+.breads [title="pita"] {
+  background: url('../images/food/breads/pita.jpg?1360727167') no-repeat 50% 50%;
+}
+.breads [title="tortilla"] {
+  background: url('../images/food/breads/tortilla.jpg?1360727223') no-repeat 50% 50%;
+}
+.breads [title="other"] {
+  background: url('../images/food/breads/other.jpg?1360727255') no-repeat 50% 50%;
+}
+
+.sandwich [title="multigrain"] {
+  background: url('../images/food/breads/sandwiches/multigrain.jpg?1360727848') no-repeat 50% 50%;
+}
+.sandwich [title="rye"] {
+  background: url('../images/food/breads/sandwiches/rye.jpg?1360727900') no-repeat 50% 50%;
+}
+.sandwich [title="sourdough"] {
+  background: url('../images/food/breads/sandwiches/sourdough.jpg?1360727943') no-repeat 50% 50%;
+}
+.sandwich [title="wheat"] {
+  background: url('../images/food/breads/sandwiches/wheat.jpg?1360727975') no-repeat 50% 50%;
+}
+.sandwich [title="white"] {
+  background: url('../images/food/breads/sandwiches/white.jpg?1360728013') no-repeat 50% 50%;
+}
+.sandwich [title="other"] {
+  background: url('../images/food/breads/sandwiches/other.jpg?1360728059') no-repeat 50% 50%;
+}
+
+.add-custom, .food-log-form .calories, .food-log-form [type="submit"] {
+  color: white;
+  padding: 0.1em 0.25em;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.food-log-form {
+  padding: 1em 0;
+  border-top: 0.25em solid #794f93;
+}
+.food-log-form div:not(.calories) label {
+  display: inline-block;
+  min-width: 5em;
+  color: #b3b2b2;
+  text-align: right;
+}
+.food-log-form .calories {
+  float: right;
+  min-width: 2.5em;
+  background-color: #f7bf5f;
+  text-align: center;
+  -webkit-box-shadow: rgba(247, 191, 95, 0.3) 0 0 0 0.25em;
+  -moz-box-shadow: rgba(247, 191, 95, 0.3) 0 0 0 0.25em;
+  box-shadow: rgba(247, 191, 95, 0.3) 0 0 0 0.25em;
+}
+.food-log-form .calories label {
+  display: block;
+  margin: 0 -0.25em;
+  padding: 0 0.25em 0.1em;
+  border-top: 2px solid white;
+  background-color: #ef826a;
+  color: white;
+  -webkit-transform: translateY(0.1em);
+  -moz-transform: translateY(0.1em);
+  -ms-transform: translateY(0.1em);
+  -o-transform: translateY(0.1em);
+  transform: translateY(0.1em);
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.food-log-form input {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  border: 1px solid #b3b2b2;
+}
+.food-log-form [type="submit"] {
+  -webkit-appearance: none;
+  display: block;
+  clear: both;
+  margin: 2em auto;
+  padding: 0.2em 0.25em;
+  border: none;
+  background-color: #e84575;
+  font-size: 19px;
+  line-height: 2;
+  text-align: center;
+  -webkit-box-shadow: rgba(232, 69, 117, 0.5) 0 0 0 0.25em;
+  -moz-box-shadow: rgba(232, 69, 117, 0.5) 0 0 0 0.25em;
+  box-shadow: rgba(232, 69, 117, 0.5) 0 0 0 0.25em;
+}
+
 .tabset {
   position: relative;
   clear: both;
@@ -1089,15 +1286,15 @@ header, #page {
 .tabs label {
   float: left;
   position: relative;
-  -webkit-transform: translateY(1px);
-  -moz-transform: translateY(1px);
-  -ms-transform: translateY(1px);
-  -o-transform: translateY(1px);
-  transform: translateY(1px);
+  display: inline-block;
+  -webkit-transform: translateY(2px);
+  -moz-transform: translateY(2px);
+  -ms-transform: translateY(2px);
+  -o-transform: translateY(2px);
+  transform: translateY(2px);
   font-style: italic;
   color: #1e1d23;
-  display: inline-block;
-  background: #b3b2b2;
+  background: #e8e8e8;
   padding: 1px 0.5em;
   border: 1px solid #1e1d23;
   border-bottom: none;
@@ -1120,7 +1317,7 @@ header, #page {
   height: 6px;
   border-radius: 0 0 0 6px;
   border-width: 0 0 1px 1px;
-  box-shadow: -2px 2px 0 #b3b2b2;
+  box-shadow: -2px 2px 0 #e8e8e8;
 }
 .tabs label:not(:first-of-type) {
   border-top-left-radius: 0;
@@ -1129,6 +1326,21 @@ header, #page {
 .tabs label.radio-checked {
   background: white;
   z-index: 2;
+}
+.tabs label.radio-checked:before {
+  display: block;
+  content: "\0020";
+  position: absolute;
+  border-width: 0.5em 0.5em 0;
+  border-color: #3f94af transparent;
+  border-style: solid;
+  bottom: -0.5em;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 .tabs label.radio-checked:after {
   box-shadow: -2px 2px 0 white;
